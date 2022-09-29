@@ -6,6 +6,13 @@
       "telefono": "12",
       "empresa": "12212",
       "id": 26
+    },
+    {
+      "nombre": "Victor Lascare",
+      "email": "victor@gmail.com",
+      "telefono": "4613755487",
+      "empresa": "Google Inc.",
+      "id": 27
     }
   ]
 }
