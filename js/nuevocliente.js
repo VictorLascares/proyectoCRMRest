@@ -1,3 +1,5 @@
+import { mostrarAlerta } from "./funciones.js";
+
 window.onload = () => {
     const formulario = document.querySelector("#formulario");
     formulario.addEventListener("submit", validarCliente);
@@ -19,7 +21,7 @@ window.onload = () => {
 
         if (validar(cliente)) {
             // Mostrar mensaje
-            console.log('Todos los campos son obligatorios');
+            mostrarAlerta("Todos los campos son obligatorios");
             return;
         }
     }
