@@ -1,36 +1,32 @@
-import { mostrarAlerta } from "./funciones.js";
+import { mostrarAlerta, validar } from "./funciones.js";
 import { nuevoCliente } from "./API.js";
 
 window.onload = () => {
-    const formulario = document.querySelector("#formulario");
-    formulario.addEventListener("submit", validarCliente);
+  const formulario = document.querySelector("#formulario");
+  formulario.addEventListener("submit", validarCliente);
 
-    function validarCliente(e) {
-        e.preventDefault();
+  function validarCliente(e) {
+    e.preventDefault();
 
-        const nombre = document.querySelector("#nombre").value;
-        const email = document.querySelector("#email").value;
-        const telefono = document.querySelector("#telefono").value;
-        const empresa = document.querySelector("#empresa").value;
+    const nombre = document.querySelector("#nombre").value;
+    const email = document.querySelector("#email").value;
+    const telefono = document.querySelector("#telefono").value;
+    const empresa = document.querySelector("#empresa").value;
 
-        const cliente = {
-            nombre,
-            email,
-            telefono,
-            empresa,
-        };
+    const cliente = {
+      nombre,
+      email,
+      telefono,
+      empresa,
+    };
 
-        if (validar(cliente)) {
-            // Mostrar mensaje
-            mostrarAlerta("Todos los campos son obligatorios");
-            return;
-        }
-
-        nuevoCliente(cliente);
-        formulario.reset();
+    if (validar(cliente)) {
+      // Mostrar mensaje
+      mostrarAlerta("Todos los campos son obligatorios");
+      return;
     }
 
-    function validar(obj) {
-        return !Object.values(obj).every((input) => input !== "");
-    }
+    nuevoCliente(cliente);
+    formulario.reset();
+  }
 };

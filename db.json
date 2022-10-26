@@ -1,3 +1,18 @@
 {
-  "clientes": []
+  "clientes": [
+    {
+      "nombre": "Victor Láscares",
+      "email": "victor@google.com",
+      "telefono": "1234567890",
+      "empresa": "Google Inc.",
+      "id": 1
+    },
+    {
+      "nombre": "Manuel Gallardo",
+      "email": "manuel@facebook.com",
+      "telefono": "1281202082",
+      "empresa": "Facebook Inc.",
+      "id": 2
+    }
+  ]
 }

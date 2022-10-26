@@ -25,16 +25,39 @@ const obtenerClientes = async () => {
   }
 };
 
-
 // Eliminar cliente
 const eliminarCliente = async (cliente) => {
-    try {
-        await fetch(`${url}/${cliente}`, {
-            method: "DELETE"
-        })
-    } catch (error) {
-       console.log(error); 
-    }
-}
+  try {
+    await fetch(`${url}/${cliente}`, {
+      method: "DELETE",
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-export { nuevoCliente, obtenerClientes, eliminarCliente };
+const obtenerCliente = async (id) => {
+  try {
+    const respuesta = await fetch(`${url}/${id}`);
+    const cliente = await respuesta.json();
+    return cliente;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const actualizarCliente = async (cliente) => {
+  try {
+    await fetch(`${url}/${cliente.id}`, {
+      method: "PUT",
+      body: JSON.stringify(cliente),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { nuevoCliente, obtenerClientes, eliminarCliente, obtenerCliente, actualizarCliente };
