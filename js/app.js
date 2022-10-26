@@ -1,4 +1,4 @@
-import { obtenerClientes } from "./API.js";
+import { obtenerClientes, eliminarCliente } from "./API.js";
 
 (function () {
   const listado = document.querySelector("#listado-clientes");
@@ -96,11 +96,11 @@ import { obtenerClientes } from "./API.js";
       enlaceEliminar.classList.add(
         "text-red-600",
         "hover:text-red-900",
-        "eliminar"
       );
       enlaceEliminar.href = "#";
       enlaceEliminar.textContent = "Eliminar";
       enlaceEliminar.dataset.cliente = id;
+      enlaceEliminar.onclick = () => confirmarEliminar(id);
 
       columnaAcciones.appendChild(enlaceEditar);
       columnaAcciones.appendChild(enlaceEliminar);
@@ -112,5 +112,13 @@ import { obtenerClientes } from "./API.js";
 
       listado.appendChild(row);
     });
+  }
+  
+  function confirmarEliminar(cliente) {
+    const confirmar = confirm("¿Deseas eliminar este registro?")
+
+    if (confirmar) {
+        eliminarCliente(cliente);
+    }
   }
 })();
